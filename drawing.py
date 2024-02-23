@@ -8,7 +8,7 @@ from sudoku_grid import SudokuGrid
 
 def draw_sudoku_box(image, line_color, side, font, nums:list, title):
     """
-    Draws the main puzzle box and its numbers.
+    Draws the main puzzle box, its numbers, and its title.
     """
     # Determine margin
     inner_margin = 165
@@ -23,7 +23,7 @@ def draw_sudoku_box(image, line_color, side, font, nums:list, title):
             
 def draw_solution_boxes(image, line_color, side, font_title, font_nums, solution_dict:dict):
     """
-    Draws up to 6 solutions boxes and its numbers.
+    Draws up to 6 solutions boxes and its numbers and titles.
     """
 
     # Extract solution data
@@ -81,10 +81,12 @@ def draw_solution_boxes(image, line_color, side, font_title, font_nums, solution
         grid6.draw_title(image, line_color, font_title, titles[5], "solution title")
 
 
-
 # Functions to draw the entire pages
             
 def draw_page(side, puzzle_num, difficulty, nums:list, output_folder, page_filename):
+    """
+    Generates and saves one main puzzle page.
+    """
     line_color = "#5d5c5b"
     page_color = "#ffffff"
     font_kawoszeh = ImageFont.truetype(r"resources\fonts\kawoszeh\kawoszeh.ttf", 120)
@@ -96,6 +98,9 @@ def draw_page(side, puzzle_num, difficulty, nums:list, output_folder, page_filen
     new_image.save(f"{output_folder}\{page_filename}.png")
 
 def draw_solution_page(side, solutions:dict, output_folder, page_filename):
+    """
+    Generates and saves one solution page.
+    """
     line_color = "#5d5c5b"
     page_color = "#ffffff"
     font_kawoszeh_title = ImageFont.truetype(r"resources\fonts\kawoszeh\kawoszeh.ttf", 50)
@@ -133,7 +138,7 @@ def draw_page_preview(side):
 
     new_image.show()
 
-def draw_solution_page_preview():
+def draw_solution_page_preview(side):
     line_color = "#5d5c5b"
     page_color = "#ffffff"
     font_kawoszeh_title = ImageFont.truetype(r"resources\fonts\kawoszeh\kawoszeh.ttf", 50)
@@ -163,10 +168,11 @@ def draw_solution_page_preview():
         'difficulties': ["test" for i in range(6)]
     }
 
-    draw_solution_boxes(new_image, line_color, "left", font_kawoszeh_title, font_kawoszeh_nums, test_solution_dict)
+    draw_solution_boxes(new_image, line_color, side, font_kawoszeh_title, font_kawoszeh_nums, test_solution_dict)
 
     new_image.show()
 
 if __name__ == "__main__":
-    draw_solution_page_preview()
+    #draw_solution_page_preview("left")
     #draw_page_preview("left")
+    pass
