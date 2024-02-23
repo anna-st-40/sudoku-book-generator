@@ -1,4 +1,4 @@
-from PIL import ImageDraw, Image
+from PIL import ImageDraw
 
 class SudokuGrid:
     def __init__(self, box_left, box_top, box_width, box_height):
@@ -6,6 +6,12 @@ class SudokuGrid:
         self.box_top = box_top
         self.box_width = box_width
         self.box_height = box_height
+
+    def _textsize(self, font, text):
+        left, top, right, bottom = font.getbbox(text)
+        width = right - left
+        height = bottom - top
+        return (width, height)
 
     def _calculate_text_position(self, font, text, left_bound, right_bound, upper_bound=0, lower_bound=0, y_position="center"):
         """
@@ -18,16 +24,16 @@ class SudokuGrid:
         box_height = abs(upper_bound - lower_bound)
 
         # Get the size of the text
-        text_width, text_height = ImageDraw.Draw(Image.new('RGB', (1, 1))).textsize(text, font=font)
+        text_width, text_height = self._textsize(font, text)
 
         # Calculate the coordinate
         x = left_bound + (box_width - text_width) // 2
         if y_position == "center":
-            y = upper_bound + (box_height - text_height - (text_height/4)) // 2
+            y = upper_bound + (box_height - 2*text_height) // 2
         elif y_position == "main title":
             y = upper_bound - text_height - (2/3)*text_height
         elif y_position == "solution title":
-            y = upper_bound - text_height
+            y = upper_bound - text_height - (1/4)*text_height - 5
 
         return (x, y)
 
