@@ -1,8 +1,8 @@
 import os
 
-from functions import *
-from drawing import draw_page
-from image_to_pdf import generate_pdf
+from functions.functions import *
+from functions.generate import *
+from functions.image_to_pdf import generate_pdf
 
 # Get number of each puzzle 
 num_each_puzzle = valid_input("How many puzzles of each difficulty level: ")
