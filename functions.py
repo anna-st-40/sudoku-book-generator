@@ -67,7 +67,7 @@ def timestamp_id():
     return timestamp_id
 
 def filename_sorting_key(filename:str):
-    page_num = filename.split("_")[2].zfill(5)
+    page_num = int(filename.split("_")[2].split(".")[0])
     return page_num
 
 def make_solutions_dicts(files_list:list, base_id):
@@ -85,9 +85,6 @@ def make_solutions_dicts(files_list:list, base_id):
         solutions["difficulties"].append(file.split("_")[3])
 
     return solutions
-  
-
-
 
 
 def generate_puzzles(num, difficulty, base_id, page_start):
@@ -108,8 +105,6 @@ def generate_puzzle_page(filename, base_id):
     page_difficulty = filename.split("_")[3]
 
     draw_page(page_side, page_num, page_difficulty, puzzle, output_folder=f"sudoku_{base_id}\pages", page_filename=f"{base_id}_page_{page_num}_{page_difficulty}")
-
-
 
 def generate_solution_page(page_num, relative_page_num, files_list:list, base_id):
     """
@@ -133,10 +128,5 @@ def generate_solution_pages(base_id):
     #Generate leftover page
     if len(files_list) % 6:
         page_start = len(files_list) - (len(files_list) % 6)
-        print("Leftover page num:", len(files_list)+len(files_list)//6 + 1)
-        print("Leftover relative page num:", len(files_list)//6 + 1)
         generate_solution_page(page_num=len(files_list)+len(files_list)//6 + 1, relative_page_num=len(files_list)//6 + 1, files_list=files_list[page_start:], base_id=base_id)
 
-
-if __name__ == "__main__":
-    generate_solution_pages(20240222191922)

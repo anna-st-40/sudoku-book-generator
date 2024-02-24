@@ -2,6 +2,7 @@ import os
 
 from functions import *
 from drawing import draw_page
+from image_to_pdf import generate_pdf
 
 # Get number of each puzzle 
 num_each_puzzle = valid_input("How many puzzles of each difficulty level: ")
@@ -47,3 +48,8 @@ print("All puzzle pages generated.\n")
 print("Generating solution pages...")
 generate_solution_pages(base_id)
 print("All solution pages generated.\n")
+
+# Generate final pdf
+print("Generating book pdf...")
+generate_pdf(base_id)
+print("Final PDF generated.")

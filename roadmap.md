@@ -1,10 +1,5 @@
 # Roadmap
 
-## Step by step
-- Generate all the puzzles
-- Generate puzzle pages (alternating margins)
-- Generate solution pages
-- Concatenate into PDF
-
-## Next step: 
-Concatenate into PDF
+## Next steps to do
+- Refactor: PdfMerger is deprecated and will be removed in pypdf 5.0.0. Use PdfWriter instead.
+- Change font sizes and line widths to look nicer
