@@ -1,10 +1,8 @@
 import subprocess
 import os
 
-
 from functions.misc_func import *
 from functions.draw import draw_page, draw_solution_page
-
 
 
 def generate_sudoku(difficulty, output_folder, output_filename):
@@ -17,7 +15,7 @@ def generate_sudoku(difficulty, output_folder, output_filename):
         os.mkdir(output_folder)
 
     # Run the sudoku generation script from sudoku-generator repository
-    terminal_path = r'C:\Users\Anna\Documents\Programming\Python\My projects\Sudoku Page Generator\sudoku_generator'
+    terminal_path = '.\sudoku_generator'
     command = f'python sudoku_generation.py base.txt {difficulty}'
     output_path = f"{output_folder}\{output_filename}"
     f = open(output_path, 'w')

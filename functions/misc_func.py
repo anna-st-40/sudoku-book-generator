@@ -1,8 +1,6 @@
 import os
 from datetime import datetime
 
-from functions.draw import draw_page, draw_solution_page
-
 def valid_input(prompt):
     """
     Self-validating input function that forces user input to be an int.
