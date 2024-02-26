@@ -3,7 +3,7 @@ import img2pdf
 from pypdf import PdfMerger
 from PIL import Image
 
-from functions.functions import filename_sorting_key
+from functions.misc_func import filename_sorting_key
 
 def generate_pdf(base_id):
   """

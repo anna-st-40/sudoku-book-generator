@@ -2,7 +2,7 @@ import subprocess
 import os
 
 
-from functions.functions import *
+from functions.misc_func import *
 from functions.draw import draw_page, draw_solution_page
 
 

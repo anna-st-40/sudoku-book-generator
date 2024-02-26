@@ -1,6 +1,6 @@
 import os
 
-from functions.functions import *
+from functions.misc_func import *
 from functions.generate import *
 from functions.image_to_pdf import generate_pdf
 

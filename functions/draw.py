@@ -1,5 +1,5 @@
 from PIL import Image, ImageFont
-from functions.sudoku_grid import SudokuGrid
+from classes.sudoku_grid import SudokuGrid
 
 
 def draw_sudoku_box(image, line_color, side, font, nums:list, title):
