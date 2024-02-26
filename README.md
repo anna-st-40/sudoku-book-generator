@@ -39,6 +39,9 @@ To use this sudoku book generator, you can follow these steps:
     sudoku_YYYYMMDDHHMMSS
     ```
 
+## Diagram
+<img src="./UML_diagram.png">
+
 ## Next steps to do
 - Refactor: PdfMerger is deprecated and will be removed in pypdf 5.0.0. Use PdfWriter instead.
 - Change font sizes and line widths to look nicer
